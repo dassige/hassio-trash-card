@@ -25,7 +25,8 @@ const getData = (event: CalendarEvent, pattern: Pattern & { idx: number }, useSu
   ...event,
   ...pattern,
   label: getLabel(event, pattern, useSummary),
-  type: pattern.type === 'custom' ? `custom-${pattern.idx}` : pattern.type
+  type: pattern.type === 'custom' ? `custom-${pattern.idx}` : pattern.type,
+  description: event.content.description ?? event.content.summary,
 });
 
 const eventToItem = (event: CalendarEvent | undefined, { pattern, useSummary }: Options): CalendarItem[] => {

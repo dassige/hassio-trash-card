@@ -9,7 +9,6 @@ import { getCalendarData } from '../../utils/getCalendarData';
 import { getTimeZoneOffset } from '../../utils/getTimeZoneOffset';
 import { fireEvent } from '../../utils/fireEvent';
 import { hasEntities } from '../../utils/hasEntities';
-
 import './container';
 import './items/empty';
 
@@ -205,24 +204,26 @@ export class TrashCard extends LitElement {
     const cardStyle = this.config.card_style;
 
     if (cardStyle === 'chip') {
-      return html`<trash-card-chips-container 
-        .config=${this.config} 
-        .items=${this.currentItems} 
+      return html`<trash-card-chips-container
+        .config=${this.config}
+        .items=${this.currentItems}
         .hass=${this.hass}
       ></trash-card-chips-container>`;
     }
     if (cardStyle === 'icon') {
-      return html`<trash-card-icons-container 
-        .config=${this.config} 
-        .items=${this.currentItems} 
+      return html`<trash-card-icons-container
+        .config=${this.config}
+        .items=${this.currentItems}
         .hass=${this.hass}
       ></trash-card-icons-container>`;
     }
 
-    return html`<trash-card-cards-container 
-      .config=${this.config} 
-      .items=${this.currentItems} 
+    return html`<trash-card-cards-container
+      .config=${this.config}
+      .items=${this.currentItems}
       .hass=${this.hass}
     ></trash-card-cards-container>`;
   }
+
 }
+

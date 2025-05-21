@@ -54,6 +54,7 @@ interface TrashCardConfig {
   event_grouping?: boolean;
   day_style?: typeof DAYSTYLES[number];
   day_style_format?: string;
+  time_style_format?: string;
   card_style?: typeof CARDSTYLES[number];
   alignment_style?: typeof ALIGNMENTSTYLES[number];
   color_mode?: typeof COLORMODES[number] | 'badge';
@@ -69,7 +70,7 @@ interface TrashCardConfig {
   only_all_day_events?: boolean;
 }
 
- type CardStyleConfig = Pick<TrashCardConfig, 'hide_time_range' | 'day_style' | 'day_style_format' | 'layout' | 'color_mode' | 'icon_size' | 'with_label'>;
+ type CardStyleConfig = Pick<TrashCardConfig, 'hide_time_range' | 'day_style' | 'day_style_format' | 'time_style_format' | 'layout' | 'color_mode' | 'icon_size' | 'with_label'>;
 
 const entityCardConfigStruct = assign(
   defaultConfigStruct,
@@ -90,6 +91,7 @@ const entityCardConfigStruct = assign(
     event_grouping: optional(boolean()),
     day_style: optional(union([ literal(DAYSTYLES[0]), literal(DAYSTYLES[1]), literal(DAYSTYLES[2]), literal(DAYSTYLES[3]) ])),
     day_style_format: optional(string()),
+    time_style_format: optional(string()),
     card_style: optional(union([ literal(CARDSTYLES[0]), literal(CARDSTYLES[1]), literal(CARDSTYLES[2]) ])),
     alignment_style: optional(union([ literal(ALIGNMENTSTYLES[0]), literal(ALIGNMENTSTYLES[1]), literal(ALIGNMENTSTYLES[2]), literal(ALIGNMENTSTYLES[3]) ])),
     color_mode: optional(union([ literal(COLORMODES[0]), literal(COLORMODES[1]) ])),

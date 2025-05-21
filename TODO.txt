@@ -1,0 +1,4 @@
+DONE - More formats for dates (time options on start and end date)
+Regex pattern on patterns
+click on dates to open a detail (with full title, text, description, location,etc...)
+DONE - alldays event on muyltiple days

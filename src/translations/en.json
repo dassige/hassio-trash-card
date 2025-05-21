@@ -19,6 +19,10 @@
                 "title": "Custom date format",
                 "helper": "Define your own date format. (dd = day with leading 0, d = day, MM = month with leading 0, M = month, yy = year short, yyyy = year long) E.g. dd.MM.yyyy = 03.04.2024, where d.M.yy = 3.4.24 would result."
             },
+            "time_style_format": {
+                "title": "Custom date format",
+                "helper": "Define your own time format. (HH = hour (24hrs), H = hour (12hrs), mm = minutes with leading 0, m = minutes) E.g. HH:mm = 15:04, where H:m = 3:4 would result."
+            },
             "card_style": {
                 "title": "Display as",
                 "values": {
@@ -120,12 +124,18 @@
             "description": "Currently no events found. This message is only available during editing."
         },
         "trash": {
-            "today": "today",
-            "tomorrow": "tomorrow",
-            "day": "<DAY>",
+            "today": "today<DAYEND>",
+            "tomorrow": "tomorrow<DAYEND>",
+            "day": "<DAY><DAYEND>",
+            "today_custom": "today<DAYEND>",
+            "tomorrow_custom": "tomorrow<DAYEND>",
+            "day_custom": "<DAY><DAYEND>",
             "today_from_till": "Today\nfrom <START> to <END>",
             "tomorrow_from_till": "Tomorrow\nbetween <START> and <END>",
+            "today_from_till_custom": "Today\n <START>-<END>",
+            "tomorrow_from_till_custom": "Tomorrow\n <START>-<END>",
             "day_from_till": "<DAY>\nbetween <START> and <END>",
+            "day_from_till_custom": "<DAY>\n <START>-<END>",
             "daysleft": "in <DAYS> day",
             "daysleft_more": "in <DAYS> days",
             "daysleft_from_till": "in <DAYS> day\nbetween <START> and <END>",

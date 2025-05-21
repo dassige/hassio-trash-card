@@ -69,6 +69,7 @@ const configDefaults = {
   // eslint-disable-next-line @typescript-eslint/naming-convention
   day_style: 'default',
   day_style_format: 'yyyy.MM.dd',
+  time_style_format: 'HH:mm',
   card_style: 'card',
   alignment_style: 'left',
   color_mode: 'background',
@@ -165,8 +166,8 @@ class TrashCardEditor extends LitElement {
       <trash-card-pattern-editor
         .hass=${this.hass}
           .pattern=${this.config!.pattern}
-          @delete-pattern-item=${this.deletePatternItem}  
-          @create-pattern-item=${this.createPatternItem}  
+          @delete-pattern-item=${this.deletePatternItem}
+          @create-pattern-item=${this.createPatternItem}
           @edit-pattern-item=${this.editPatternItem}
           @settings-changed=${this.valueChanged}
       ></trash-card-pattern-editor>`;
@@ -299,6 +300,7 @@ class TrashCardEditor extends LitElement {
     }
     if (config.day_style !== 'custom') {
       delete config.day_style_format;
+      delete config.time_style_format;
     }
 
     if (config.card_style === 'card') {

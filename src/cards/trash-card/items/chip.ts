@@ -18,13 +18,13 @@ class ItemChip extends BaseItemElement {
     // eslint-disable-next-line prefer-destructuring
     const item = this.item;
 
-    const { color_mode, hide_time_range, day_style, day_style_format, with_label } = this.config;
+    const { color_mode, hide_time_range, day_style, day_style_format, time_style_format, with_label } = this.config;
 
     const style = {
       ...getColoredStyle(color_mode, item, this.parentElement, this.hass.themes.darkMode)
     };
 
-    const content = getDateString(item, hide_time_range ?? false, day_style, day_style_format, this.hass);
+    const content = getDateString(item, hide_time_range ?? false, day_style, day_style_format, time_style_format, this.hass);
 
     const daysTillToday = Math.abs(daysTill(new Date(), item.date.start));
 
