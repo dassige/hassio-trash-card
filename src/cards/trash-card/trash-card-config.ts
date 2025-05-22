@@ -105,6 +105,7 @@ const entityCardConfigStruct = assign(
         icon: optional(string()),
         label: optional(string()),
         pattern: optional(string()),
+        isPatternRegex: optional(boolean()),
         pattern_exact: optional(boolean()),
         picture: optional(string()),
         type: string()

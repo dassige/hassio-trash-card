@@ -91,6 +91,7 @@
                 "pattern": {
                     "title": "Edit pattern",
                     "edit": "edit",
+                    "regex": "Is the pattern a RegEx",
                     "delete": "delete",
                     "create": "Create new pattern",
                     "new_custom_label": "New pattern",

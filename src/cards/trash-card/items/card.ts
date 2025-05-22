@@ -137,10 +137,36 @@ class ItemCard extends BaseItemElement {
     if (!this.hass || !this.item || !this.config) {
       return;
     }
+
     const modal = this.shadowRoot?.querySelector(
       "#overlay-info-card"
     ) as HTMLElement;
-    //  render(content, modal);
+
+    const parent = this.parentElement as HTMLElement;
+    if (!parent) {
+      console.warn("Parent not found");
+      return;
+    }
+    // close all the others
+    const cards = Array.from(
+      parent.querySelectorAll("trash-card-item-card")
+    ) as HTMLElement[];
+    for (let i = 0; i < cards.length; i++) {
+      const card = cards[i];
+      const item = card.shadowRoot?.querySelector(
+        "#overlay-info-card"
+      ) as HTMLElement;
+      if (item === modal) {
+        continue;
+      }
+      item.style.display = "none";
+
+        const text = item.querySelector(
+          "#overlay-info-card-text"
+        ) as HTMLElement;
+        text.style.display = "none";
+      }
+
     const text = modal.querySelector("#overlay-info-card-text") as HTMLElement;
 
     if (!open) {
@@ -287,14 +313,18 @@ class ItemCard extends BaseItemElement {
           height: 40%;
           top: 30%;
           left: 10%;
-          background-color: var(--ha-card-background,rgb( 137, 137, 137));
+          background-color: var(--ha-card-background, rgb(137, 137, 137));
           z-index: 2;
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
           transition: 0.3s;
           pointer-events: auto;
           outline-width: 3px;
           outline-style: solid;
-          outline-color: color-mix(in srgb, var(--ha-card-background ), black 30%);
+          outline-color: color-mix(
+            in srgb,
+            var(--ha-card-background),
+            black 30%
+          );
         }
         #overlay-info-card:hover {
           box-shadow: 0 8px 16px 0 rgb(121, 121, 121);
@@ -303,8 +333,6 @@ class ItemCard extends BaseItemElement {
           font-size: 16px;
         }
         .overlay-info-card-icon {
-         
-
         }
       `,
     ];
